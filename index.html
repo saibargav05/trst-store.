@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111111">
+<title>TRST — Everyday, Elevated</title>
+<style>
+:root{--ink:#111;--paper:#f6f4ef;--muted:#777;--accent:#d9ff43;--line:#dedbd3}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}
+.topbar{background:var(--accent);text-align:center;padding:9px 12px;font-size:11px;font-weight:800;letter-spacing:1.4px}
+header{display:flex;align-items:center;justify-content:space-between;padding:19px 5%;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(246,244,239,.96);backdrop-filter:blur(10px);z-index:5}
+.logo{font-weight:950;font-size:30px;letter-spacing:5px}.logo span{color:#777}
+nav{display:flex;gap:25px;font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700}.bag{border:1px solid #111;border-radius:30px;padding:10px 15px;font-size:12px;font-weight:800}
+.hero{padding:48px 5% 55px;display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;max-width:1400px;margin:auto}
+.kicker{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#555}
+h1{font-size:clamp(52px,8vw,108px);line-height:.88;letter-spacing:-5px;margin:22px 0 25px;font-weight:950}h1 em{font-style:normal;color:#777}
+.hero p{font-size:15px;line-height:1.7;color:#555;max-width:390px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 22px;background:#111;color:white;border:1px solid #111;font-size:12px;font-weight:800;letter-spacing:.7px;cursor:pointer}.btn.light{background:transparent;color:#111}.hero-art{min-height:440px;background:#d8d6ce;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.sun{position:absolute;width:240px;height:240px;border-radius:50%;background:var(--accent);top:30px;right:30px}.model{position:absolute;width:62%;height:78%;bottom:-8%;left:19%;background:linear-gradient(110deg,#171717,#383838 52%,#111);clip-path:polygon(26% 0,40% 0,45% 8%,55% 8%,60% 0,74% 0,100% 20%,84% 41%,74% 31%,80% 100%,20% 100%,26% 31%,16% 41%,0 20%);filter:drop-shadow(0 25px 18px #777);}.model:after{content:"TRST";position:absolute;top:28%;left:37%;font-weight:900;letter-spacing:4px;font-size:clamp(12px,2vw,24px);color:var(--accent)}
+.art-note{position:absolute;bottom:18px;left:18px;background:var(--paper);padding:10px 13px;font-size:10px;font-weight:900;letter-spacing:1px}
+.marquee{background:#111;color:var(--accent);padding:15px 5%;font-size:12px;font-weight:900;letter-spacing:2px;display:flex;justify-content:space-around;gap:15px;flex-wrap:wrap}
+section{padding:65px 5%;max-width:1400px;margin:auto}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:25px}.section-head h2{font-size:clamp(30px,4vw,48px);letter-spacing:-2px;margin:8px 0 0}.section-head p{color:var(--muted);font-size:12px}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product{min-width:0}.product-art{height:330px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:#e3e0d8}.product:nth-child(2) .product-art{background:#d4d5cd}.product:nth-child(3) .product-art{background:#ddd1c5}
+.garment{width:57%;height:66%;background:#171717;clip-path:polygon(25% 0,40% 0,45% 8%,55% 8%,60% 0,75% 0,100% 20%,84% 42%,73% 32%,80% 100%,20% 100%,27% 32%,16% 42%,0 20%);filter:drop-shadow(0 12px 10px #999);position:relative}.product:nth-child(2) .garment{background:#d9d6ce}.product:nth-child(3) .garment{background:#747d65}.garment:after{content:"TRST";position:absolute;top:28%;left:35%;font-size:13px;letter-spacing:2px;font-weight:900;color:var(--accent)}.product:nth-child(2) .garment:after{color:#111}.product:nth-child(3) .garment:after{color:#eee}
+.tag{position:absolute;top:13px;left:13px;background:white;padding:7px 9px;font-size:9px;font-weight:900;letter-spacing:1px}.product-info{display:flex;justify-content:space-between;gap:10px;padding:14px 0 8px}.product-info h3{margin:0;font-size:14px}.price{font-size:14px;font-weight:900;white-space:nowrap}.desc{font-size:11px;color:var(--muted);margin:0 0 13px}.add{width:100%;background:transparent;border:1px solid #aaa;padding:12px;cursor:pointer;font-size:11px;font-weight:900;letter-spacing:1px}.add:hover{background:#111;color:white}
+.story{background:#111;color:white;max-width:none;padding:60px 5%;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.story-inner{max-width:1200px;margin:auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.story h2{font-size:clamp(36px,5vw,65px);line-height:.95;letter-spacing:-3px;margin:15px 0}.story p{color:#bbb;line-height:1.8;font-size:13px}.story-box{border:1px solid #454545;padding:35px}.story-box strong{font-size:40px;letter-spacing:5px;color:var(--accent)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:30px}.contact h2{font-size:42px;letter-spacing:-2px;margin:10px 0}.contact p{font-size:13px;color:var(--muted);line-height:1.7}.contact-card{border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:12px}.contact-card input,.contact-card textarea,.contact-card select{width:100%;padding:13px;border:1px solid var(--line);background:transparent}.contact-card textarea{min-height:80px;resize:vertical}.small{font-size:10px;color:var(--muted);line-height:1.6}
+footer{background:#e9e6dd;padding:25px 5%;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:10px;color:#555;letter-spacing:.5px}
+.cartcount{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#111;border-radius:50%;width:18px;height:18px;margin-left:5px;font-size:10px}
+@media(max-width:720px){header{padding:15px 5%}.logo{font-size:25px}nav{display:none}.hero{grid-template-columns:1fr;padding-top:35px;gap:22px}h1{letter-spacing:-3px}.hero-art{min-height:340px}.products{grid-template-columns:1fr 1fr;gap:12px}.product-art{height:230px}.product:nth-child(3){grid-column:1/-1}.product:nth-child(3) .product-art{height:260px}.story-inner,.contact{grid-template-columns:1fr}.story{padding:45px 5%}.story-box{padding:25px}section{padding-top:45px;padding-bottom:45px}.section-head{align-items:start;flex-direction:column}.marquee{font-size:10px}.sun{width:170px;height:170px}}
+</style>
+</head>
+<body>
+<div class="topbar">FIRST DROP • MINIMAL STYLE, EVERYDAY CONFIDENCE</div>
+<header>
+  <a class="logo" href="#">TRST<span>.</span></a>
+  <nav><a href="#shop">Shop</a><a href="#story">Our vibe</a><a href="#contact">Contact</a></nav>
+  <a class="bag" href="#contact">ORDER NOW <span class="cartcount" id="count">0</span></a>
+</header>
+<main>
+<section class="hero">
+  <div>
+    <div class="kicker">Built for your everyday</div>
+    <h1>LESS<br>NOISE.<br><em>MORE</em><br>YOU.</h1>
+    <p>Clean fits. Easy confidence. Meet TRST — everyday menswear with a minimal point of view.</p>
+    <div class="actions"><a class="btn" href="#shop">SHOP THE DROP ↗</a><a class="btn light" href="#story">OUR VIBE</a></div>
+  </div>
+  <div class="hero-art" aria-label="Illustration of a black TRST T-shirt"><div class="sun"></div><div class="model"></div><div class="art-note">TRST / DROP 001</div></div>
+</section>
+<div class="marquee"><span>MADE FOR EVERYDAY</span><span>✳</span><span>KEEP IT REAL</span><span>✳</span><span>TRST STUDIO</span></div>
+<section id="shop">
+  <div class="section-head"><div><div class="kicker">The first drop</div><h2>Everyday essentials.</h2></div><p>DEMO PRODUCTS · EDIT PRICES BEFORE LAUNCH</p></div>
+  <div class="products">
+    <article class="product"><div class="product-art"><span class="tag">BESTSELLER</span><div class="garment"></div></div><div class="product-info"><h3>Core Logo Tee</h3><span class="price">₹499</span></div><p class="desc">Black · Relaxed fit · Cotton</p><button class="add" data-name="Core Logo Tee" data-price="499">ADD TO ORDER +</button></article>
+    <article class="product"><div class="product-art"><span class="tag">NEW</span><div class="garment"></div></div><div class="product-info"><h3>Stone Essential Tee</h3><span class="price">₹549</span></div><p class="desc">Stone · Minimal logo · Everyday fit</p><button class="add" data-name="Stone Essential Tee" data-price="549">ADD TO ORDER +</button></article>
+    <article class="product"><div class="product-art"><span class="tag">UTILITY</span><div class="garment"></div></div><div class="product-info"><h3>Olive Street Tee</h3><span class="price">₹599</span></div><p class="desc">Olive · Streetwear inspired · Relaxed fit</p><button class="add" data-name="Olive Street Tee" data-price="599">ADD TO ORDER +</button></article>
+  </div>
+  <p class="small">These are sample listings and illustrative graphics, not real inventory photos. Replace product names, photos, sizes, prices, and availability before accepting orders.</p>
+</section>
+<div class="story" id="story"><div class="story-inner"><div><div class="kicker" style="color:#d9ff43">The TRST mindset</div><h2>Style speaks.<br>Keep it simple.</h2><p>TRST is a concept for people who like clean silhouettes, versatile colours, and pieces they can wear on repeat. Start small, build honestly, and let the quality do the talking.</p><a class="btn" style="background:#d9ff43;color:#111;border-color:#d9ff43" href="#shop">EXPLORE THE DROP ↗</a></div><div class="story-box"><strong>TRST.</strong><p>NO OVERTHINKING.<br>NO EXTRA NOISE.<br>JUST YOUR EVERYDAY UNIFORM.</p></div></div></div>
+<section id="contact">
+  <div><div class="kicker">Let's get your fit</div><h2>Ready to order?</h2><p>Add products to your order, enter your details, then send the order by WhatsApp. You can confirm stock, size, delivery charges, and COD availability with the seller.</p><p><b>Payment options:</b> COD by arrangement, or online payment after you configure your UPI details below.</p></div>
+  <form class="contact-card" id="orderForm">
+    <label class="small" for="customer">YOUR NAME</label><input id="customer" required placeholder="Full name">
+    <label class="small" for="phone">PHONE / WHATSAPP</label><input id="phone" required inputmode="tel" placeholder="10-digit mobile number">
+    <label class="small" for="address">DELIVERY ADDRESS</label><textarea id="address" required placeholder="House no., street, area, city, PIN code"></textarea>
+    <label class="small" for="size">T-SHIRT SIZE</label><select id="size"><option value="M">M</option><option value="S">S</option><option value="L">L</option><option value="XL">XL</option><option value="XXL">XXL</option></select>
+    <label class="small" for="pay">PAYMENT PREFERENCE</label><select id="pay"><option value="Cash on Delivery (confirm with seller)">Cash on Delivery (confirm with seller)</option><option value="Online UPI (seller will send payment details)">Online UPI (seller will send payment details)</option></select>
+    <div id="orderSummary" class="small">Your order is empty. Add a product above.</div>
+    <button class="btn" type="submit">SEND ORDER ON WHATSAPP ↗</button>
+    <button class="btn light" type="button" id="upiBtn">ONLINE PAYMENT / UPI</button>
+    <p class="small">Before launch, replace the WhatsApp number and UPI ID in the setup section of this file. Online payments are not processed automatically by this demo website.</p>
+  </form>
+</section>
+</main>
+<footer><div><b>TRST.</b> — Everyday, elevated.</div><div>© <span id="year"></span> TRST STUDIO</div><div>Instagram · WhatsApp · Support</div></footer>
+<script>
+// SETUP: Replace these two values before publishing.
+// WhatsApp number must include country code, digits only. Example India: 919876543210
+const WHATSAPP_NUMBER = "91XXXXXXXXXX";
+// Replace with your real UPI ID, e.g. yourname@bank. Never use a placeholder to collect payments.
+const UPI_ID = "YOUR-UPI-ID@BANK";
+const STORE_NAME = "TRST";
+const cart = [];
+const count = document.getElementById('count');
+const summary = document.getElementById('orderSummary');
+function updateCart(){
+  count.textContent = cart.length;
+  if(!cart.length){summary.textContent='Your order is empty. Add a product above.';return;}
+  const total=cart.reduce((sum,item)=>sum+item.price,0);
+  summary.innerHTML='<b>ORDER SUMMARY</b><br>'+cart.map(i=>`${i.name} — ₹${i.price}`).join('<br>')+`<br><br><b>Total: ₹${total}</b> (delivery charges, if any, to be confirmed)`;
+}
+document.querySelectorAll('.add').forEach(btn=>btn.addEventListener('click',()=>{
+  cart.push({name:btn.dataset.name,price:Number(btn.dataset.price)});
+  updateCart();
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+}));
+document.getElementById('orderForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!cart.length){alert('Please add a product to your order first.');return;}
+  if(WHATSAPP_NUMBER.includes('X')){alert('Store setup needed: replace WHATSAPP_NUMBER in this file with your WhatsApp number including country code.');return;}
+  const total=cart.reduce((sum,item)=>sum+item.price,0);
+  const msg=`Hello ${STORE_NAME}! I want to place an order:\n${cart.map(i=>`- ${i.name}: ₹${i.price}`).join('\n')}\nTotal: ₹${total}\nSize: ${document.getElementById('size').value}\nName: ${document.getElementById('customer').value}\nPhone: ${document.getElementById('phone').value}\nAddress: ${document.getElementById('address').value}\nPayment: ${document.getElementById('pay').value}\nPlease confirm availability and delivery charges.`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,'_blank','noopener');
+});
+document.getElementById('upiBtn').addEventListener('click',()=>{
+  if(UPI_ID.includes('YOUR-UPI')){alert('Add your real UPI ID in the UPI_ID setting before using online payments.');return;}
+  const total=cart.reduce((sum,item)=>sum+item.price,0);
+  if(!total){alert('Add a product first.');return;}
+  const uri=`upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(STORE_NAME)}&am=${total}&cu=INR&tn=${encodeURIComponent('TRST clothing order')}`;
+  window.location.href=uri;
+});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
